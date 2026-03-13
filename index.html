@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>SUNMI . Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Serif+Display:ital@1&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div id="scroll-area"></div>
+
+    <!-- 라이트박스(모달) -->
+    <div id="lightbox">
+      <div class="lb-inner">
+        <div class="lb-img-wrap">
+          <img id="lbImg" src="" alt="" />
+          <div class="lb-caption" id="lbCaption"></div>
+        </div>
+      </div>
+      <button class="lb-close" id="lbClose" aria-label="닫기">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20" />
+          <line x1="20" y1="4" x2="4" y2="20" />
+        </svg>
+      </button>
+      <button class="lb-arrow prev" id="lbPrev" aria-label="이전">
+        <svg
+          viewBox="0 0 24 24"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="lb-arrow next" id="lbNext" aria-label="다음">
+        <svg
+          viewBox="0 0 24 24"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+      <div class="lb-dots" id="lbDots"></div>
+    </div>
+
+    <div id="viewport">
+      <nav>
+        <a
+          class="nav-logo"
+          href="#"
+          onclick="
+            goTo(0);
+            return false;
+          "
+          >PORTFOLIO</a
+        >
+        <ul class="nav-links">
+          <li><a href="#" data-goto="1">ABOUT</a></li>
+          <li><a href="#" data-goto="2">WORK</a></li>
+          <li><a href="#" data-goto="5">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- 메인 하트 -->
+      <div id="scrollWrapper" class="scroll-wrapper">
+        <div id="hearts-layer">
+          <div
+            class="h"
+            style="
+              left: calc(0 * 100vw + 1vw);
+              top: 5%;
+              --dy: -24px;
+              --r: 13deg;
+              --r2: 10deg;
+              animation-duration: 5.5s;
+            "
+          >
+            <svg width="500" height="500" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g1" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g1)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(0 * 100vw + 50vw);
+              top: 52%;
+              --dy: -16px;
+              --r: -15deg;
+              --r2: -7deg;
+              animation-duration: 4.8s;
+              animation-delay: 0.7s;
+            "
+          >
+            <svg width="290" height="290" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g2" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g2)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(0 * 100vw + 87vw);
+              bottom: 18%;
+              --dy: -12px;
+              --r: 10deg;
+              --r2: 4deg;
+              animation-duration: 6s;
+              animation-delay: 1.2s;
+            "
+          >
+            <svg width="135" height="135" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g3" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g3)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(0 * 100vw + 70vw);
+              bottom: -17%;
+              --dy: -10px;
+              --r: 10deg;
+              --r2: 5deg;
+              animation-duration: 5.2s;
+              animation-delay: 0.4s;
+            "
+          >
+            <svg width="350" height="350" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g4" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g4)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(1 * 100vw + 74%);
+              top: 3%;
+              --dy: -14px;
+              --r: 3deg;
+              --r2: -3deg;
+              animation-duration: 5.8s;
+            "
+          >
+            <svg width="265" height="245" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g5" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g5)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(1 * 100vw + 77vw);
+              bottom: 18%;
+              --dy: -10px;
+              --r: -4deg;
+              --r2: 3deg;
+              animation-duration: 4.6s;
+              animation-delay: 0.6s;
+            "
+          >
+            <svg width="125" height="115" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g6" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g6)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(2 * 100vw - 190px);
+              top: 14%;
+              --dy: -13px;
+              --r: -15deg;
+              --r2: -4deg;
+              animation-duration: 5.4s;
+              animation-delay: 0.3s;
+            "
+          >
+            <svg width="185" height="170" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g7" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g7)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(2 * 100vw + 14%);
+              bottom: 10%;
+              --dy: -11px;
+              --r: 4deg;
+              --r2: -3deg;
+              animation-duration: 5.7s;
+              animation-delay: 0.9s;
+            "
+          >
+            <svg width="100" height="92" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g9" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g9)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(1 * 100vw + 70%);
+              top: 4%;
+              --dy: -18px;
+              --r: -3deg;
+              --r2: 4deg;
+              animation-duration: 5.3s;
+              animation-delay: 0.4s;
+            "
+          >
+            <svg width="220" height="200" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="ga" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#ga)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(3 * 100vw + 29%);
+              top: 200px;
+              --dy: -15px;
+              --r: 30deg;
+              --r2: 20deg;
+              animation-duration: 5.1s;
+              animation-delay: 0.5s;
+            "
+          >
+            <svg width="350" height="350" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g8" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g8)"
+              />
+            </svg>
+          </div>
+          <div
+            class="h"
+            style="
+              left: calc(4 * 100vw - 120px);
+              top: 18%;
+              --dy: -13px;
+              --r: 5deg;
+              --r2: -4deg;
+              animation-duration: 4.9s;
+              animation-delay: 0.2s;
+            "
+          >
+            <svg width="160" height="148" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="g10" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#fff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#g10)"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- HERO -->
+        <section id="page1">
+          <!-- 모바일 전용 하트 -->
+          <div
+            class="mobile-heart"
+            style="
+              position: absolute;
+              right: -60px;
+              top: 5%;
+              pointer-events: none;
+              z-index: 1;
+            "
+          >
+            <svg width="280" height="280" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="mg1" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#mg1)"
+              />
+            </svg>
+          </div>
+          <div
+            class="mobile-heart"
+            style="
+              position: absolute;
+              left: -40px;
+              bottom: 15%;
+              pointer-events: none;
+              z-index: 1;
+            "
+          >
+            <svg width="180" height="180" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="mg2" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#mg2)"
+              />
+            </svg>
+          </div>
+
+          <!-- 메인-hero -->
+          <div class="hero-name">
+            <img
+              src="de.png"
+              alt="Designer"
+              class="script-img"
+              style="
+                width: clamp(300px, 40vw, 600px);
+                display: block;
+                transform: translateX(30px);
+              "
+            />
+            <h1>KIM<br />SUN MI.</h1>
+          </div>
+          <div class="hero-sub">Web Designer.<br />Digital Artist.</div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="page2">
+          <div
+            class="mobile-heart"
+            style="
+              position: absolute;
+              right: 30px;
+              top: 1px;
+              pointer-events: none;
+              z-index: 1;
+            "
+          >
+            <svg width="200" height="200" viewBox="0 0 320 300">
+              <defs>
+                <radialGradient id="mg3" cx="36%" cy="26%" r="62%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="30%" stop-color="#f0f0f0" />
+                  <stop offset="70%" stop-color="#d8d8d8" />
+                  <stop offset="100%" stop-color="#b0b8c0" />
+                </radialGradient>
+              </defs>
+              <path
+                d="M160,260 C60,200 20,130 20,90 C20,50 55,20 100,20 C130,20 155,40 160,55 C165,40 190,20 220,20 C265,20 300,50 300,90 C300,130 260,200 160,260Z"
+                fill="url(#mg3)"
+              />
+            </svg>
+          </div>
+
+          <div class="about-inner">
+            <div class="about-char-col">
+              <div class="about-char-placeholder">
+                <img
+                  src="me.jpg"
+                  alt="캐릭터"
+                  style="width: 100%; height: 100%; object-fit: contain"
+                />
+              </div>
+              <!-- <div class="about-char-label">
+                ai가 만든 나의 모습<br />(정확도 20%)
+              </div> -->
+            </div>
+            <div class="about-text-col">
+              <div class="about-section-lbl">About Me</div>
+              <div class="about-title1">DIGITAL ARTIST</div>
+              <div class="about-title2">Web Designer</div>
+              <p class="about-desc">
+                디자이너로서 기획 단계부터 실제 결과물이 완성되기까지의 전
+                과정을 경험해왔습니다. 팀에서는 신입이지만 실무의 흐름과 협업의
+                중요성을 알고 있습니다. 톤앤매너를 유지하는 디자인, 일관된
+                사용자 경험, 그리고 완성도 있는 결과물을 만드는 것을 중요하게
+                생각합니다. 빠르게 배우는 사람보다
+                <strong>디자인의 완성도를 끝까지 책임지는 디자이너</strong>로
+                일하고 싶습니다.<br /><br /><strong
+                  >장기근속은 옵션이 아니라 Default!</strong
+                >
+              </p>
+              <div class="about-skills">
+                <span class="work-tag">Photoshop</span>
+                <span class="work-tag">Illustrator</span>
+                <span class="work-tag">HTML.CSS</span>
+                <span class="work-tag">React</span>
+                <span class="work-tag">Graphic Design</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Poster.Banner -->
+        <section id="page3">
+          <div class="work-inner" style="gap: 100px; padding-left: 150px">
+            <div class="work-text">
+              <div class="work-section-lbl">Work</div>
+              <div class="work-title">Poster.<br />Detail Page Design</div>
+              <p class="work-desc">
+                브랜드의 메시지를 디자인에 담아냅니다. 인쇄 매체부터 웹 환경까지
+                다양한 매체를 아우르는 디자인 작업을 중요하게 생각합니다. 제품의
+                매력을 효과적으로 전달하고 구매 흐름과 사용자 경험을 고려해
+                설계된 상세페이지 디자인입니다.
+              </p>
+              <div class="work-tags">
+                <span class="work-tag">Photoshop</span>
+                <span class="work-tag">Illustrator</span>
+              </div>
+            </div>
+            <div class="work-images">
+              <div
+                class="work-img-card lb-trigger"
+                data-gallery="poster"
+                data-src="postet.jpg"
+                data-caption="Poster Design"
+              >
+                <div
+                  class="img-placeholder"
+                  style="
+                    width: clamp(200px, 20vw, 330px);
+                    height: clamp(260px, 48vh, 440px);
+                  "
+                >
+                  <img
+                    src="postet.jpg"
+                    alt="포스터"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+              </div>
+              <div
+                class="work-img-card lb-trigger"
+                data-gallery="poster"
+                data-src="dp-03-02.jpg"
+                data-caption="Detail Page Design (상세페이지 디자인)"
+              >
+                <div
+                  class="img-placeholder"
+                  style="
+                    width: clamp(200px, 20vw, 330px);
+                    height: clamp(260px, 48vh, 440px);
+                  "
+                >
+                  <img
+                    src="dp-02.jpg"
+                    alt="상세베네피트1"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+              </div>
+              <div
+                class="work-img-card lb-trigger"
+                data-gallery="poster"
+                data-src="osl-02.jpg"
+                data-caption="Detail Page Design (상세페이지 디자인)"
+              >
+                <div
+                  class="img-placeholder"
+                  style="
+                    width: clamp(200px, 20vw, 330px);
+                    height: clamp(260px, 48vh, 440px);
+                  "
+                >
+                  <img
+                    src="osl-04.jpg"
+                    alt="오셜록"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Perfume Brand -->
+        <section id="page4">
+          <div class="work-inner" style="gap: 100px; padding-left: 150px">
+            <div class="work-text">
+              <div class="work-section-lbl">Work</div>
+              <div class="work-title">Perfume Brand<br />Web Project</div>
+              <p class="work-desc">
+                향수 브랜드 웹사이트의 UI 구조와 레이아웃을 분석하여 구현한
+                프로젝트입니다. 기존 디자인 흐름을 유지하면서 일부 섹션은 직접
+                디자인하여 구성했습니다.
+              </p>
+              <div class="work-tags">
+                <span class="work-tag">HTML:CSS</span>
+                <span class="work-tag">JS</span>
+                <span class="work-tag">Photoshop</span>
+                <span class="work-tag">Illustrator</span>
+              </div>
+              <a
+                class="work-visit-link"
+                href="https://alslalsl00.dothome.co.kr/"
+                target="_blank"
+                >VISIT SITE →</a
+              >
+            </div>
+            <div class="work-images">
+              <div
+                class="work-img-card lb-trigger"
+                data-gallery="perfume"
+                data-src="clone.png"
+                data-caption="Perfume Brand Web Project"
+              >
+                <div
+                  class="img-placeholder"
+                  style="
+                    width: clamp(320px, 45vw, 750px);
+                    height: clamp(260px, 48vh, 400px);
+                  "
+                >
+                  <img
+                    src="clone.png"
+                    alt="향수"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weather & News -->
+        <section id="page5">
+          <div class="work-inner" style="gap: 56px; padding-left: 120px">
+            <div class="work-text">
+              <div class="work-section-lbl">Work</div>
+              <div class="work-title">Weather<br />&amp; News App</div>
+              <p class="work-desc">
+                API를 활용해 현재 날씨와 현재 주요 뉴스를 함께 확인할 수 있는
+                레트로 날씨 애플리케이션입니다. 직접 기획·디자인·구현까지 한
+                프로젝트 입니다.
+              </p>
+              <div class="work-tags">
+                <span class="work-tag">React:CSS</span>
+                <span class="work-tag">JS</span>
+                <span class="work-tag">Photoshop</span>
+                <span class="work-tag">Illustrator</span>
+              </div>
+              <a
+                class="work-visit-link"
+                href="https://dayeon5303.github.io/App/"
+                target="_blank"
+                >VISIT SITE →</a
+              >
+            </div>
+            <div class="work-images">
+              <div
+                class="work-img-card lb-trigger"
+                data-gallery="weather"
+                data-src="app.jpg"
+                data-caption="Weather &amp; News App"
+              >
+                <div
+                  class="img-placeholder"
+                  style="
+                    width: clamp(300px, 45vw, 750px);
+                    height: clamp(230px, 48vh, 400px);
+                  "
+                >
+                  <img
+                    src="app.jpg"
+                    alt="app"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="page6">
+          <div class="contact-inner">
+            <div class="contact-big">
+              Let's<br /><em>work</em><br />Together!
+            </div>
+
+            <img
+              src="meme.png"
+              alt="캐릭터"
+              style="width: 220px; object-fit: contain; margin: 20px 0"
+            />
+
+            <div class="contact-email">sun2342@nate.com<br />010.4198.5303</div>
+          </div>
+        </section>
+      </div>
+
+      <div class="bottom-bar" id="bottomBar">
+        <span class="bar-left" id="barLeft">Hero</span>
+        <div class="bar-dots" id="barDots"></div>
+        <span class="bar-right" id="barRight">SCROLL →</span>
+      </div>
+    </div>
+
+    <script>
+      const isMobile = () => window.innerWidth <= 1024;
+
+      /* 커서 */
+      const cursor = document.getElementById("cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+      document
+        .querySelectorAll("a, .work-img-card, .lb-close, .lb-arrow, .lb-dot")
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () => cursor.classList.add("big"));
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("big"),
+          );
+        });
+
+      /* 스크롤 전환 */
+      const mobilePageIds = [
+        "page1",
+        "page2",
+        "page3",
+        "page4",
+        "page5",
+        "page6",
+      ];
+      document.querySelectorAll("[data-goto]").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (isMobile()) {
+            const target = document.getElementById(
+              mobilePageIds[+a.dataset.goto],
+            );
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          } else {
+            goTo(+a.dataset.goto);
+          }
+        });
+      });
+
+      /* 데스크탑 슬라이드 */
+      const N = 6,
+        SECTION_SCROLL = 1600,
+        LERP = 0.08;
+      let current = 0,
+        slideX = 0,
+        tSlide = 0;
+      const wrapper = document.getElementById("scrollWrapper");
+      const barLeft = document.getElementById("barLeft");
+      const barRight = document.getElementById("barRight");
+      const pageMeta = [
+        "KIM SUN MI",
+        "About — Skills",
+        "Poster · Banner Design",
+        "Perfume Brand Web",
+        "Weather & News App",
+        "KIM SUN MI",
+      ];
+
+      const dotsWrap = document.getElementById("barDots");
+      for (let i = 0; i < N; i++) {
+        const d = document.createElement("div");
+        d.className = "bar-dot" + (i === 0 ? " active" : "");
+        d.addEventListener("click", () => {
+          if (!isMobile()) goTo(i);
+        });
+        dotsWrap.appendChild(d);
+      }
+
+      window.addEventListener("scroll", () => {
+        if (isMobile()) return;
+        const raw = window.scrollY / SECTION_SCROLL;
+        tSlide = -Math.min(raw, N - 1) * window.innerWidth;
+        current = Math.min(Math.floor(raw + 0.05), N - 1);
+        barLeft.textContent = pageMeta[current];
+        barRight.textContent = current < N - 1 ? "SCROLL →" : "← BACK";
+        document
+          .querySelectorAll(".bar-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === current));
+
+        if (current === 5) {
+          document.querySelector("nav").style.mixBlendMode = "normal";
+          document.querySelector(".nav-logo").style.color = "#fff";
+          document
+            .querySelectorAll(".nav-links a")
+            .forEach((a) => (a.style.color = "#fff"));
+        } else {
+          document.querySelector("nav").style.mixBlendMode = "multiply";
+          document.querySelector(".nav-logo").style.color = "#111";
+          document
+            .querySelectorAll(".nav-links a")
+            .forEach((a) => (a.style.color = "#111"));
+        }
+      });
+
+      (function raf() {
+        if (!isMobile()) {
+          slideX += (tSlide - slideX) * LERP;
+          if (Math.abs(tSlide - slideX) < 0.1) slideX = tSlide;
+          wrapper.style.transform = `translateX(${slideX}px)`;
+        } else {
+          wrapper.style.transform = "none";
+        }
+        requestAnimationFrame(raf);
+      })();
+
+      function goTo(i) {
+        window.scrollTo({
+          top: Math.max(0, Math.min(N - 1, i)) * SECTION_SCROLL,
+          behavior: "smooth",
+        });
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (isMobile() || lbOpen) return;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(current + 1);
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(current - 1);
+      });
+
+      let tx0 = 0;
+      window.addEventListener(
+        "touchstart",
+        (e) => {
+          tx0 = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      window.addEventListener(
+        "touchend",
+        (e) => {
+          if (isMobile() || lbOpen) return;
+          const dx = tx0 - e.changedTouches[0].clientX;
+          if (Math.abs(dx) > 50) goTo(dx > 0 ? current + 1 : current - 1);
+        },
+        { passive: true },
+      );
+
+      /* 라이트박스 */
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbCaption = document.getElementById("lbCaption");
+      const lbClose = document.getElementById("lbClose");
+      const lbPrev = document.getElementById("lbPrev");
+      const lbNext = document.getElementById("lbNext");
+      const lbDotsEl = document.getElementById("lbDots");
+      let lbOpen = false,
+        lbItems = [],
+        lbIndex = 0;
+
+      function getGallery(name) {
+        return [
+          ...document.querySelectorAll(`.lb-trigger[data-gallery="${name}"]`),
+        ].map((el) => ({
+          src: el.dataset.src,
+          caption: el.dataset.caption || "",
+        }));
+      }
+      function openLb(gallery, idx) {
+        lbItems = getGallery(gallery);
+        lbIndex = idx;
+        lbOpen = true;
+        document.body.style.overflow = "hidden";
+        lb.classList.add("open");
+        renderLb();
+      }
+      function closeLb() {
+        lbOpen = false;
+        document.body.style.overflow = "";
+        lb.classList.remove("open");
+      }
+      function renderLb() {
+        const item = lbItems[lbIndex];
+        lbImg.src = item.src;
+        lbImg.alt = item.caption;
+        lbCaption.textContent = item.caption;
+        lbPrev.classList.toggle("hidden", lbIndex === 0);
+        lbNext.classList.toggle("hidden", lbIndex === lbItems.length - 1);
+        lbDotsEl.innerHTML = "";
+        if (lbItems.length > 1) {
+          lbItems.forEach((_, i) => {
+            const d = document.createElement("div");
+            d.className = "lb-dot" + (i === lbIndex ? " active" : "");
+            d.addEventListener("click", () => {
+              lbIndex = i;
+              renderLb();
+            });
+            lbDotsEl.appendChild(d);
+          });
+        }
+      }
+
+      document.querySelectorAll(".lb-trigger").forEach((el) => {
+        el.addEventListener("click", () => {
+          const gallery = el.dataset.gallery;
+          const items = getGallery(gallery);
+          const idx = items.findIndex(
+            (it) =>
+              it.src === el.dataset.src && it.caption === el.dataset.caption,
+          );
+          openLb(gallery, idx >= 0 ? idx : 0);
+        });
+      });
+
+      lbClose.addEventListener("click", closeLb);
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLb();
+      });
+      lbPrev.addEventListener("click", () => {
+        if (lbIndex > 0) {
+          lbIndex--;
+          renderLb();
+        }
+      });
+      lbNext.addEventListener("click", () => {
+        if (lbIndex < lbItems.length - 1) {
+          lbIndex++;
+          renderLb();
+        }
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (!lbOpen) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowLeft" && lbIndex > 0) {
+          lbIndex--;
+          renderLb();
+        }
+        if (e.key === "ArrowRight" && lbIndex < lbItems.length - 1) {
+          lbIndex++;
+          renderLb();
+        }
+      });
+
+      let lbTx0 = 0;
+      lb.addEventListener(
+        "touchstart",
+        (e) => {
+          lbTx0 = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      lb.addEventListener(
+        "touchend",
+        (e) => {
+          const dx = lbTx0 - e.changedTouches[0].clientX;
+          if (Math.abs(dx) > 40) {
+            if (dx > 0 && lbIndex < lbItems.length - 1) {
+              lbIndex++;
+              renderLb();
+            }
+            if (dx < 0 && lbIndex > 0) {
+              lbIndex--;
+              renderLb();
+            }
+          }
+        },
+        { passive: true },
+      );
+
+      if (isMobile()) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && entry.target.id === "page6") {
+                document.querySelector("nav").style.background =
+                  "rgba(17,17,17,0)";
+                document.querySelector(".nav-logo").style.color = "#fff";
+                document
+                  .querySelectorAll(".nav-links a")
+                  .forEach((a) => (a.style.color = "#fff"));
+              } else if (entry.isIntersecting) {
+                document.querySelector("nav").style.background =
+                  "rgba(189,224,224,0.3)";
+                document.querySelector(".nav-logo").style.color = "#111";
+                document
+                  .querySelectorAll(".nav-links a")
+                  .forEach((a) => (a.style.color = "#111"));
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+
+        document
+          .querySelectorAll("section")
+          .forEach((s) => observer.observe(s));
+      }
+
+      window.addEventListener("resize", () => {
+        if (!isMobile()) {
+          document.querySelector("nav").style.background = "";
+          document.querySelector(".nav-logo").style.color = "";
+          document
+            .querySelectorAll(".nav-links a")
+            .forEach((a) => (a.style.color = ""));
+        }
+      });
+    </script>
+  </body>
+</html>
